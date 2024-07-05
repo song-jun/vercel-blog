@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as n,a as o}from"./app.005c9d90.js";const _={},c=o("p",null,"\u8FD9\u91CC\u662F Mr.Song \u7684\u4E00\u4E9B\u968F\u7B14\uFF0C\u540E\u7EED\u88AB\u6574\u7406\u8FDB\u535A\u5BA2\u4E2D\u3002",-1),r=[c];function s(a,l){return t(),n("div",null,r)}var i=e(_,[["render",s],["__file","index.html.vue"]]);export{i as default};
