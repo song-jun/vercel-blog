@@ -3,7 +3,7 @@
   <id>https://vuepress.songjun520.cn/</id>
   <title>Mr.Song</title>
   <subtitle>Mr.Song，前端面试题，面试，君陌离的博客，博客，君陌离，君陌离的小跟班，小跟班，VUE，vue，vuepress，nodjs，node，cnpm，npm，yarn，前端，html，css，python，blog</subtitle>
-  <updated>2024-07-05T06:22:05.399Z</updated>
+  <updated>2024-07-05T07:18:19.602Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://vuepress.songjun520.cn/atom.xml"/>
   <link rel="alternate" href="https://vuepress.songjun520.cn/"/>
@@ -67,8 +67,8 @@
       <span>:printType</span><span><span>=</span><span>"</span>printType<span>"</span></span>
       <span>:customFn</span><span><span>=</span><span>"</span>null<span>"</span></span>
       <span>showTable</span>
-      <span>top</span><span><span>=</span><span>"</span>80<span>"</span></span>
-      <span>bottom</span><span><span>=</span><span>"</span>120<span>"</span></span>
+      <span>top</span><span><span>=</span><span>"</span>30<span>"</span></span>
+      <span>bottom</span><span><span>=</span><span>"</span>110<span>"</span></span>
       <span>tableType</span><span><span>=</span><span>"</span>wpg<span>"</span></span>
       <span>:print-info</span><span><span>=</span><span>"</span>printInfo<span>"</span></span>
       <span>:columns</span><span><span>=</span><span>"</span>columns<span>"</span></span>
@@ -254,6 +254,8 @@
 <span>]</span><span>;</span>
 </code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="组件下载-zip包" tabindex="-1"> 组件下载（zip包）</h2>
 <p><a href="/assets/zip/lodopPrint.zip">下载</a></p>
+<h2 id="组件预览" tabindex="-1"> 组件预览</h2>
+<p><a href="https://static.songjun520.cn/dist" target="_blank" rel="noopener noreferrer">just go</a></p>
 ]]></content>
     <category term="Vue组件" scheme=""/>
     <published>2024-07-05T00:00:00.000Z</published>
@@ -408,6 +410,8 @@
 <span>]</span><span>;</span>
 </code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="组件下载-zip包" tabindex="-1"> 组件下载（zip包）</h2>
 <p><a href="/assets/zip/print.zip">下载</a></p>
+<h2 id="组件预览" tabindex="-1"> 组件预览</h2>
+<p><a href="https://static.songjun520.cn/dist" target="_blank" rel="noopener noreferrer">just go</a></p>
 ]]></content>
     <category term="Vue组件" scheme=""/>
     <published>2024-07-05T00:00:00.000Z</published>
