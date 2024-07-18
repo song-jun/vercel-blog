@@ -4,7 +4,7 @@
  * @Autor: MrSong
  * @Date: 2022-08-06 15:28:36
  * @LastEditors: MrSong
- * @LastEditTime: 2022-08-07 11:11:13
+ * @LastEditTime: 2024-07-18 10:50:33
  */
 import { initNotice, IsPC } from "./notice.js";
 export const initAudio = () => {
@@ -60,8 +60,7 @@ export const initAudio = () => {
     }
     function keybroad() {
       document.onkeydown = keyDown;
-      function keyDown() {
-        let e = event || window.event;
+      function keyDown(e) {
         let realkey = null;
         if (e.keyCode == 32) {
           realkey = '\' 空格\'';
@@ -74,6 +73,10 @@ export const initAudio = () => {
             initNotice(stopSound, playSound);
             playSound();
           }
+        } else if(e.keyCode == 38){
+          // 向上
+        } else if (e.keyCode == 40) {
+          // 向下
         }
       }
     }

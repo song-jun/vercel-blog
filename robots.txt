@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://vuepress.songjun520.cn/sitemap.xml
+Sitemap: https://www.songjun520.cn/sitemap.xml

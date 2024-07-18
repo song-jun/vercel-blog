@@ -5,7 +5,7 @@
  * @Date: 2022-08-06 15:28:36
  * @LastEditors: MrSong
 
- * @LastEditTime: 2023-08-23 12:56:46
+ * @LastEditTime: 2024-07-18 10:55:45
  */
 function addScript(url) {
   let script = document.createElement("script");
@@ -115,8 +115,7 @@ async function initApp() {
       }
       function keybroad() {
         document.onkeydown = keyDown;
-        function keyDown() {
-          let e = event || window.event;
+        function keyDown(e) {
           let realkey = null;
           if (e.keyCode == 32) {
             realkey = "' 空格'";
@@ -129,6 +128,10 @@ async function initApp() {
               initNotice(stopSound, playSound);
               playSound();
             }
+          } else if (e.keyCode == 38) {
+            // 向上
+          } else if (e.keyCode == 40) {
+            // 向下
           }
         }
       }
