@@ -5,7 +5,7 @@
  * @Date: 2022-08-06 15:28:36
  * @LastEditors: MrSong
 
- * @LastEditTime: 2024-07-18 10:55:45
+ * @LastEditTime: 2024-07-31 17:15:09
  */
 function addScript(url) {
   let script = document.createElement("script");
@@ -30,6 +30,7 @@ async function initApp() {
       id: "root",
     };
     let sessionData = sessionStorage.getItem("chartsData");
+    if (typeof $ == "undefined") return;
     if (!$ || sessionData) return;
     $.ajax({
       url: "https://admin.songjun520.cn:3000/get_msg",
@@ -47,7 +48,28 @@ async function initApp() {
     });
     window.getChartsData = getChartsData;
   };
-  let initAudio = () => {
+  const getMp3List = () => {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: "https://static.songjun520.cn/json/mp3.json",
+        cache: false,
+        dataType: "json",
+        type: "get",
+        success: (res) => {
+          resolve(res)
+        },
+        fail: () => {
+          reject([])
+        }
+      });
+    })
+  }
+  let initAudio = async () => {
+    let mp3List = await getMp3List(), defalutIndex = 0, defalutMp3 = `${baseUrl}assets/mp3/a little story.mp3`;
+    if (mp3List.length) {
+      // defalutMp3 = mp3List[0].url;
+    }
+    console.log("🚀 ~ initAudio ~ mp3List:", mp3List, defalutMp3)
     window.AudioContext =
       window.AudioContext ||
       window.webkitAudioContext ||
@@ -88,12 +110,17 @@ async function initApp() {
         source.start(0); //立即播放
       }
 
-      function initSound(arrayBuffer) {
+      function initSound(arrayBuffer, url, callback) {
         context.decodeAudioData(
           arrayBuffer,
           function (buffer) {
-            //解码成功时的回调函数
+            //解码成功时解码成功的回调函数
             audioBuffer = buffer;
+            callback({
+              code: 200,
+              msg: '解码成功',
+              url: url
+            })
             // stopSound();
           },
           function (e) {
@@ -103,15 +130,34 @@ async function initApp() {
         );
       }
 
-      function loadAudioFile(url) {
+      function loadAudioFile(url, callback) {
         let xhr = new XMLHttpRequest(); //通过XHR下载音频文件
         xhr.open("GET", url, true);
         xhr.responseType = "arraybuffer";
         xhr.onload = function (e) {
           //下载完成
-          initSound(this.response);
+          initSound(this.response, url, callback);
         };
         xhr.send();
+      }
+      function getNextUrl(type) {
+        let len = mp3List.length;
+        if (!len) return defalutMp3
+        if (type === 'add') {
+          if (defalutIndex + 1 >= len) {
+            defalutIndex = 0
+          } else {
+            defalutIndex++
+          }
+        } else {
+          defalutIndex--
+          if (defalutIndex < 0) {
+            defalutIndex = -defalutIndex;
+            defalutIndex = len - defalutIndex
+          }
+        }
+        console.log('🚀', mp3List[defalutIndex].url,defalutIndex);
+        return mp3List[defalutIndex].url
       }
       function keybroad() {
         document.onkeydown = keyDown;
@@ -129,13 +175,29 @@ async function initApp() {
               playSound();
             }
           } else if (e.keyCode == 38) {
+            stopSound();
             // 向上
+            let url = getNextUrl();
+            loadAudioFile(url, (e) => {
+              console.log('🚀loadAudioFile', e);
+              initNotice(stopSound, playSound);
+              playSound();
+            });
           } else if (e.keyCode == 40) {
+            stopSound();
             // 向下
+            let url = getNextUrl('add');
+            loadAudioFile(url, (e) => {
+              console.log('🚀loadAudioFile', e);
+              initNotice(stopSound, playSound);
+              playSound();
+            });
           }
         }
       }
-      loadAudioFile(`${baseUrl}assets/a little story.mp3`);
+      loadAudioFile(defalutMp3, (e) => {
+        console.log('🚀loadAudioFile', e);
+      });
       keybroad();
       clickEvent();
       window.stopBGSound = stopSound;

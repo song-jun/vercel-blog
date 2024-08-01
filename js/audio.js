@@ -4,7 +4,7 @@
  * @Autor: MrSong
  * @Date: 2022-08-06 15:28:36
  * @LastEditors: MrSong
- * @LastEditTime: 2024-07-18 10:50:33
+ * @LastEditTime: 2024-07-31 10:41:58
  */
 import { initNotice, IsPC } from "./notice.js";
 export const initAudio = () => {
@@ -80,7 +80,7 @@ export const initAudio = () => {
         }
       }
     }
-    loadAudioFile('/assets/a little story.mp3');
+    loadAudioFile('/assets/mp3/a little story.mp3');
     keybroad();
     clickEvent();
   } catch (e) {

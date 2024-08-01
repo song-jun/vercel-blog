@@ -6,17 +6,18 @@
     <link>https://www.songjun520.cn/</link>
     <description>Mr.Song，前端面试题，面试，君陌离的博客，博客，君陌离，君陌离的小跟班，小跟班，VUE，vue，vuepress，nodjs，node，cnpm，npm，yarn，前端，html，css，python，blog</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 18 Jul 2024 07:06:13 GMT</pubDate>
-    <lastBuildDate>Thu, 18 Jul 2024 07:06:13 GMT</lastBuildDate>
+    <pubDate>Thu, 01 Aug 2024 02:51:36 GMT</pubDate>
+    <lastBuildDate>Thu, 01 Aug 2024 02:51:36 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <category>其他</category>
     <category>Vue组件</category>
     <category>面试题</category>
     <category>题库</category>
     <category>GIT</category>
-    <category>随笔</category>
     <category>Linux</category>
     <category>基础</category>
+    <category>随笔</category>
     <category>笔记</category>
     <category>软件</category>
     <category>服务器</category>
@@ -27,6 +28,302 @@
     <category>前端</category>
     <category>Vue</category>
     <category>JavaScript</category>
+    <item>
+      <title>cnpm指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/cnpm.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/cnpm.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">cnpm指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="设置为淘宝镜像源-全局设置" tabindex="-1"> 设置为淘宝镜像源（全局设置）</h2>
+<div><pre><code>旧_淘宝镜像：https://registry.npm.taobao.org（2022年6月30号已下线）
+新_淘宝镜像：https://registry.npmmirror.com
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div><h2 id="cnpm指令" tabindex="-1"> Cnpm指令</h2>
+<div><pre><code><span>#1、查看是否安装cnpm</span>
+
+cnpm -v
+
+<span>#2、安装cnpm</span>
+
+<span>npm</span> <span>install</span> -g cnpm -registry<span>=</span>https://registry.npm.taobao.org
+
+<span>#3、设置cnpm 镜像地址为淘宝地址</span>
+
+cnpm config  <span>set</span> registry https://registry.npm.taobao.org
+
+<span>#4、查看设置镜像地址</span>
+
+<span>npm</span> config get registry
+
+<span>#5、安装</span>
+
+cnpm i
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>GIT指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/git.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/git.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">GIT指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="git指令" tabindex="-1"> GIT指令</h2>
+<div><pre><code><span>#版本回退</span>
+<span>git</span> log <span>##查看版本号</span>
+<span>#或者</span>
+<span>git</span> log --oneline <span>##查看简洁信息</span>
+<span>git</span> revert -n <span>(</span>版本号<span>)</span> <span>##再当前版本的基础上新增一个版本，不影响以前的代码</span>
+<span>##或者</span>
+<span>git</span> reset --hard <span>(</span>版本号<span>)</span> <span>##该命令会强行覆盖当前版本和要回退的版本之间的其他版本（不太建议）</span>
+<span>##最后</span>
+<span>git</span> push -f <span>##强制推送</span>
+
+<span>#删除本地分支</span>
+<span>git</span> branch -d dev
+
+<span>#分支的快速创建与切换</span>
+<span>git</span> checkout -b master
+
+<span>#将本地分支推送到远程仓库</span>
+<span>git</span> push -u origin 本地分支名称:远程分支名称
+
+<span>#删除远程分支</span>
+<span>git</span> push origin -d dev
+
+<span>#撤销合并</span>
+ <span>git</span> merge --abort
+
+<span>#撤销commit（不删除工作空间改动代码，撤销commit，不撤销git add . ）</span>
+<span>#HEAD^ 表示上一个版本，即上一次的commit，几个^代表几次提交，如果回滚两次就是HEAD^^。</span>
+<span>#也可以写成HEAD~1，如果进行两次的commit，想要都撤回，可以使用HEAD~2。</span>
+<span>git</span> reset --soft HEAD^
+
+<span>#撤销commit并撤销git add .（不删除工作空间改动代码，撤销commit，并且撤销git add . ）</span>
+<span>git</span> reset --mixed HEAD^
+<span>#或者</span>
+<span>git</span> reset HEAD^
+
+<span>#撤销commit并撤销git add .（删除工作空间改动代码，撤销commit，撤销git add . ）</span>
+<span>git</span> reset --hard HEAD^ 
+
+<span>#如果commit后面的注释写错了，先别急着撤销，可以运行</span>
+<span>#进入vim编辑模式，修改完保存即可</span>
+<span>git</span> commit --amend 
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="git-设置代理和取消代理" tabindex="-1"> git 设置代理和取消代理</h2>
+<ul>
+<li>如果代理类型是socks5进行如下设置即可</li>
+</ul>
+<div><pre><code><span>git</span> config --global http.proxy socks5://127.0.0.1:1080 
+<span>git</span> config --global https.proxy socks5://127.0.0.1:1080
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div><h2 id="如果是普通的http-https进行如下设置即可" tabindex="-1"> 如果是普通的http/https进行如下设置即可</h2>
+<div><pre><code><span>git</span> config --global https.proxy http://127.0.0.1:1080 
+<span>git</span> config --global https.proxy https://127.0.0.1:1080
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div><h2 id="取消代理设置-解决无法拉取github" tabindex="-1"> 取消代理设置(解决无法拉取github)</h2>
+<div><pre><code><span>git</span> config --global --unset http.proxy 
+<span>git</span> config --global --unset https.proxy
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>npm指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/npm.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/npm.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">npm指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="npm指令" tabindex="-1"> Npm指令</h2>
+<div><pre><code>//设置镜像源
+<span>npm</span> config <span>set</span> registry https://registry.npmmirror.com
+//查看当前使用的镜像地址
+<span>npm</span> config get registry
+// 查看 <span>npm</span> 全局安装过的包
+<span>npm</span> list -g --depth <span>0</span>
+// 全局安装
+<span>npm</span> <span>install</span> <span>&lt;</span>package<span>></span> -g
+// 安装项目所有依赖
+<span>npm</span> <span>install</span>
+// 安装指定版本
+<span>npm</span> <span>install</span> <span>&lt;</span>package<span>></span>@1.2.3
+// 安装最新版本
+<span>npm</span> i <span>&lt;</span>package<span>></span>@latest
+// 删除全局的包
+<span>npm</span> uninstall -g <span>&lt;</span>package<span>></span>
+// 删除 node_modules 目录下面的包
+<span>npm</span> uninstall <span>&lt;</span>package<span>></span>
+// 更新指定包
+<span>npm</span> update <span>&lt;</span>package<span>></span>
+// 更新指定全局包
+<span>npm</span> update -g <span>&lt;</span>package<span>></span>
+// 更新本地安装的包
+// 在 package.json 文件所在的目录中执行 <span>npm</span> update 命令
+// 执行 <span>npm</span> outdated 命令。不应该有任何输出。
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>nrm指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/nrm.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/nrm.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">nrm指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="nrm是一个npm源管理器-允许你快速地在-npm源间切换" tabindex="-1"> nrm是一个npm源管理器，允许你快速地在 npm源间切换</h2>
+<h2 id="nrm安装" tabindex="-1"> nrm安装</h2>
+<div><pre><code><span>npm</span> <span>install</span> -g nrm
+</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="nrm使用" tabindex="-1"> nrm使用</h2>
+<div><pre><code>nrm <span>ls</span>
+</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="查看当前源" tabindex="-1"> 查看当前源</h2>
+<div><pre><code>nrm current
+</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="切换源" tabindex="-1"> 切换源</h2>
+<div><pre><code>nrm use taobao
+</code></pre><div aria-hidden="true"><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>node版本管理工具nvm</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/nvm.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/nvm.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">node版本管理工具nvm</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="安装nvm管理工具" tabindex="-1"> 安装nvm管理工具</h2>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener noreferrer">下载安装包</a></p>
+<ul>
+<li>输入命令行nvm ls available查看可用的node.js版本号</li>
+</ul>
+<div><pre><code>nvm <span>ls</span> available
+</code></pre><div aria-hidden="true"><div></div></div></div><ul>
+<li>输入命令行nvm install node版本号(例如：nvm install 12.17.0)即可安装对应版本以及自动安装对应的npm版本</li>
+</ul>
+<div><pre><code>nvm <span>install</span> <span>12.17</span>.0
+</code></pre><div aria-hidden="true"><div></div></div></div><ul>
+<li>nvm list查看已安装可用版本</li>
+</ul>
+<div><pre><code>nvm list
+</code></pre><div aria-hidden="true"><div></div></div></div><ul>
+<li>卸载指定的node版本：nvm uninstall 12.17.0</li>
+</ul>
+<div><pre><code>nvm uninstall <span>12.17</span>.0
+</code></pre><div aria-hidden="true"><div></div></div></div><ul>
+<li>使用指定node版本：nvm use 12.17.0</li>
+</ul>
+<div><pre><code>nvm use <span>12.17</span>.0
+</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="_1-配置镜像" tabindex="-1"> 1.配置镜像</h2>
+<p>阿里云</p>
+<div><pre><code>nvm npm_mirror https://npmmirror.com/mirrors/npm/
+nvm node_mirror https://npmmirror.com/mirrors/node/
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div><p>腾讯云</p>
+<div><pre><code>nvm npm_mirror http://mirrors.cloud.tencent.com/npm/
+nvm node_mirror http://mirrors.cloud.tencent.com/nodejs-release/
+</code></pre><div aria-hidden="true"><div></div><div></div></div></div><h2 id="_2-常用命令" tabindex="-1"> 2.常用命令</h2>
+<div><pre><code>nvm <span>ls</span> ：列出所有已安装的 <span>node</span> 版本
+nvm ls-remote ：列出所有远程服务器的版本（官方node version list）
+nvm list ：列出所有已安装的 <span>node</span> 版本
+nvm list available ：显示所有可下载的版本
+nvm <span>install</span> stable ：安装最新版 <span>node</span>
+nvm <span>install</span> <span>[</span>node版本号<span>]</span> ：安装指定版本 <span>node</span>
+nvm uninstall <span>[</span>node版本号<span>]</span> ：删除已安装的指定版本
+nvm use <span>[</span>node版本号<span>]</span> ：切换到指定版本 <span>node</span>
+nvm current ：当前 <span>node</span> 版本
+nvm <span>alias</span> <span>[</span>别名<span>]</span> <span>[</span>node版本号<span>]</span> ：给不同的版本号添加别名
+nvm <span>unalias</span> <span>[</span>别名<span>]</span> ：删除已定义的别名
+nvm <span>alias</span> default <span>[</span>node版本号<span>]</span> ：设置默认版本
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>pnpm指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/pnpm.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/pnpm.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">pnpm指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="设置镜像源" tabindex="-1"> 设置镜像源</h2>
+<div><pre><code><span>pnpm</span> config <span>set</span> registry https://registry.npmmirror.com
+
+<span># 检查</span>
+<span>pnpm</span> config get registry
+
+<span>#切换源：</span>
+<span>pnpm</span> config <span>set</span> registry <span>&lt;</span>淘宝源或其他源地址<span>></span>
+
+<span>#配置全局安装路径： </span>
+<span>pnpm</span> config <span>set</span> store-dir “全局地址”
+例：pnpm config <span>set</span> store-dir D:<span>\</span>node<span>\</span>pnpm<span>\</span>global
+
+<span>#配置全局缓存路径 ：</span>
+<span>npm</span> config <span>set</span> cache-dir “缓存地址”
+例：pnpm config <span>set</span> cache-dir D:<span>\</span>node<span>\</span>pnpm<span>\</span>cache
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="常用命令" tabindex="-1"> 常用命令</h2>
+<div><pre><code><span># 查看ts-node的所有版本</span>
+<span>pnpm</span> view ts-node versions
+
+<span># 等价与npm i nodemon -g</span>
+<span>pnpm</span> <span>add</span> nodemon -g
+
+<span># npm i</span>
+<span>pnpm</span> i
+
+<span># 查看依赖(全局)</span>
+<span>pnpm</span> list <span>[</span>-g<span>]</span>
+
+<span># 较好用的地方是: npm run dev/test/build</span>
+<span>pnpm</span> dev
+<span># 当然习惯npm的也可以用 pnpm run dev</span>
+
+查看pnpm版本：pnpm -v
+
+查看源：pnpm config get registry
+
+切换源：pnpm config <span>set</span> registry <span>&lt;</span>淘宝源或其他源地址<span>></span>
+
+删除npm或yarn生成的node_modules：rm -rf node_modules
+
+安装依赖：pnpm <span>install</span>
+
+启动项目（按实际 package.json 配置文件为准）：pnpm dev
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>yarn指令</title>
+      <link>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/yarn.html</link>
+      <guid>https://www.songjun520.cn/other/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/yarn.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">yarn指令</source>
+      <category>其他</category>
+      <pubDate>Fri, 07 Aug 2020 14:24:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="yarn指令" tabindex="-1"> Yarn指令</h2>
+<div><pre><code>//默认镜像源 设置为 淘宝镜像
+<span>yarn</span> config <span>set</span> registry https://registry.npmmirror.com
+
+//electron镜像源 设置为 淘宝镜像（没用到electron可忽略这步）
+<span>yarn</span> config <span>set</span> electron_mirror https://npmmirror.com/mirrors/electron/
+
+// 查看 <span>yarn</span> 全局安装过的包
+<span>yarn</span> global list --depth<span>=</span><span>0</span>
+// 全局安装
+<span>yarn</span> global <span>add</span> <span>&lt;</span>package<span>></span>
+// 安装所有依赖
+<span>yarn</span>
+// 安装指定版本
+<span>yarn</span> <span>add</span> <span>&lt;</span>package<span>></span>@<span>&lt;</span>version<span>></span>
+// 安装最新版本
+<span>yarn</span> <span>add</span> <span>&lt;</span>package<span>></span>
+// 删除包,会更新package.json和yarn.lock
+<span>yarn</span> remove <span>&lt;</span>package<span>></span>
+// 更新包
+<span>yarn</span> upgrade
+// 更新指定的包
+<span>yarn</span> upgrade <span>&lt;</span>package<span>></span>
+// 获取可更新的包列表选择更新
+<span>yarn</span> upgrade-interactive --latest
+// 更新全局依赖
+<span>yarn</span> global upgrade --latest
+// 更新全局依赖，有交互
+<span>yarn</span> global upgrade-interactive --latest
+// 列出已缓存的包
+<span>yarn</span> cache list
+// 查找缓存包的路径
+<span>yarn</span> cache <span>dir</span>
+// 清除缓存的包
+<span>yarn</span> cache clean
+</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
+    </item>
     <item>
       <title>table封装</title>
       <link>https://www.songjun520.cn/other/%E7%BB%84%E4%BB%B6/2020/table.html</link>
@@ -162,7 +459,7 @@
 <span><span><span>&lt;</span>style</span> <span>scoped</span> <span>lang</span><span><span>=</span><span>"</span>less<span>"</span></span><span>></span></span><span></span><span><span><span>&lt;/</span>style</span><span>></span></span>
 </code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="columns支持table属性slot-与antdesgin-table组件columns配置一致" tabindex="-1"> columns支持table属性slot,与antDesgin table组件columns配置一致</h2>
 <h2 id="search-数据配置" tabindex="-1"> search 数据配置</h2>
-<div><pre><code><span>export</span> <span>const</span> <span>formData</span> <span>=</span> <span>(</span><span>self</span><span>)</span> <span>=></span> <span>{</span>
+<div><pre><code><span>const</span> <span>formData</span> <span>=</span> <span>(</span><span>self</span><span>)</span> <span>=></span> <span>{</span>
   <span>return</span> <span>{</span>
     <span>id</span><span>:</span> Date<span>.</span><span>now</span><span>(</span><span>)</span><span>,</span>
     <span>col</span><span>:</span> <span>4</span><span>,</span><span>//seach表单每一行几个表单</span>
@@ -317,7 +614,7 @@
   <span>}</span><span>;</span>
 <span>}</span><span>;</span>
 </code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="组件下载-zip包" tabindex="-1"> 组件下载（zip包）</h2>
-<p><a href="/assets/zip/table.zip">下载</a></p>
+<p><a href="/assets/zip/comTable.zip">下载</a></p>
 <h2 id="组件预览" tabindex="-1"> 组件预览</h2>
 <p><a href="https://static.songjun520.cn/dist" target="_blank" rel="noopener noreferrer">just go</a></p>
 ]]></content:encoded>
@@ -1920,81 +2217,6 @@ http://yourname:password@git.oschina.net/name/project.git
 ]]></content:encoded>
     </item>
     <item>
-      <title>联系方式</title>
-      <link>https://www.songjun520.cn/innerpage/about.html</link>
-      <guid>https://www.songjun520.cn/innerpage/about.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">联系方式</source>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<div><p>欢迎各位朋友一起交流合作</p>
-<hr>
-<p align='left'><span face='STCAIYUN' size='5' cloor=salmon>微信：********</span></p>
-<p align='left'><span face='STCAIYUN' size='5'>QQ：289097246</span></p>
-<p align='left'><span face='STCAIYUN' size='5'>邮箱：289097246@qq.com</span></p>
-<hr>
-<p align='right'><span color='#999' size='3' face="STCAIYUN">注：联系请备注来意，谢谢</span></p>
-</div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>赞赏</title>
-      <link>https://www.songjun520.cn/innerpage/sponsor.html</link>
-      <guid>https://www.songjun520.cn/innerpage/sponsor.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">赞赏</source>
-      <pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h2 id="联系方式" tabindex="-1"> 联系方式</h2>
-<ul>
-<li>QQ方式</li>
-</ul>
-
-<div class='img-q'>
-  <img src="/assets/img/QQ.png" alt="">
-</div>
-<h2 id="赞赏" tabindex="-1"> 赞赏</h2>
-<ul>
-<li>
-<p>亲的赞赏，犹如滔滔江水，连绵不绝！</p>
-<div class='img-box'>
-  <img src="/assets/img/zfb.jpg" alt="">
-  <img src="/assets/img/zs.jpg" alt="">
-  <img src="/assets/img/wx.jpg" alt="">
-</div>
-</li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>作品展示</title>
-      <link>https://www.songjun520.cn/innerpage/works.html</link>
-      <guid>https://www.songjun520.cn/innerpage/works.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">作品展示</source>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<div><p>本人郑重做出以下承诺：</p>
-<ol>
-<li>每个项目均由本人独立开发或参与开发作品，绝无虚假</li>
-<li>部分项目在公司内部上线，为保护公司隐私仅展示部分截图或描述</li>
-<li>如上线项目涉及某公司隐私，请联系博主删除下线</li>
-</ol>
-</div>
-<br>
-<br>
-<pro-show></pro-show>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Mr.Song 的随笔</title>
-      <link>https://www.songjun520.cn/note/</link>
-      <guid>https://www.songjun520.cn/note/</guid>
-      <source url="https://www.songjun520.cn/rss.xml">Mr.Song 的随笔</source>
-      <category>随笔</category>
-      <pubDate>Thu, 04 Aug 2022 09:52:31 GMT</pubDate>
-      <content:encoded><![CDATA[<p>这里是 Mr.Song 的一些随笔，后续被整理进博客中。</p>
-<h2 id="node-js-相关" tabindex="-1"> Node.js 相关</h2>
-<ul>
-<li><a href="/note/node-js/current-path.html">current-path 相关</a></li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
       <title>CentOS 教程</title>
       <link>https://www.songjun520.cn/linux/centos.html</link>
       <guid>https://www.songjun520.cn/linux/centos.html</guid>
@@ -2165,6 +2387,81 @@ http://yourname:password@git.oschina.net/name/project.git
 </code></pre><div aria-hidden="true"><div></div></div></div><p>和</p>
 <div><pre><code>net start LxssManager
 </code></pre><div aria-hidden="true"><div></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>联系方式</title>
+      <link>https://www.songjun520.cn/innerpage/about.html</link>
+      <guid>https://www.songjun520.cn/innerpage/about.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">联系方式</source>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<div><p>欢迎各位朋友一起交流合作</p>
+<hr>
+<p align='left'><span face='STCAIYUN' size='5' cloor=salmon>微信：********</span></p>
+<p align='left'><span face='STCAIYUN' size='5'>QQ：289097246</span></p>
+<p align='left'><span face='STCAIYUN' size='5'>邮箱：289097246@qq.com</span></p>
+<hr>
+<p align='right'><span color='#999' size='3' face="STCAIYUN">注：联系请备注来意，谢谢</span></p>
+</div>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>赞赏</title>
+      <link>https://www.songjun520.cn/innerpage/sponsor.html</link>
+      <guid>https://www.songjun520.cn/innerpage/sponsor.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">赞赏</source>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<h2 id="联系方式" tabindex="-1"> 联系方式</h2>
+<ul>
+<li>QQ方式</li>
+</ul>
+
+<div class='img-q'>
+  <img src="/assets/img/QQ.png" alt="">
+</div>
+<h2 id="赞赏" tabindex="-1"> 赞赏</h2>
+<ul>
+<li>
+<p>亲的赞赏，犹如滔滔江水，连绵不绝！</p>
+<div class='img-box'>
+  <img src="/assets/img/zfb.jpg" alt="">
+  <img src="/assets/img/zs.jpg" alt="">
+  <img src="/assets/img/wx.jpg" alt="">
+</div>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>作品展示</title>
+      <link>https://www.songjun520.cn/innerpage/works.html</link>
+      <guid>https://www.songjun520.cn/innerpage/works.html</guid>
+      <source url="https://www.songjun520.cn/rss.xml">作品展示</source>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<div><p>本人郑重做出以下承诺：</p>
+<ol>
+<li>每个项目均由本人独立开发或参与开发作品，绝无虚假</li>
+<li>部分项目在公司内部上线，为保护公司隐私仅展示部分截图或描述</li>
+<li>如上线项目涉及某公司隐私，请联系博主删除下线</li>
+</ol>
+</div>
+<br>
+<br>
+<pro-show></pro-show>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Mr.Song 的随笔</title>
+      <link>https://www.songjun520.cn/note/</link>
+      <guid>https://www.songjun520.cn/note/</guid>
+      <source url="https://www.songjun520.cn/rss.xml">Mr.Song 的随笔</source>
+      <category>随笔</category>
+      <pubDate>Thu, 04 Aug 2022 09:52:31 GMT</pubDate>
+      <content:encoded><![CDATA[<p>这里是 Mr.Song 的一些随笔，后续被整理进博客中。</p>
+<h2 id="node-js-相关" tabindex="-1"> Node.js 相关</h2>
+<ul>
+<li><a href="/note/node-js/current-path.html">current-path 相关</a></li>
+</ul>
+]]></content:encoded>
     </item>
     <item>
       <title>Mr.Song 的笔记</title>
@@ -5916,50 +6213,6 @@ JavaScript 编写网页的行为
 <li><code>Win</code> + <code>PRINT SCREEN</code>: 将当前屏幕截图保存在图片文件夹中；</li>
 <li><code>ALT</code> + <code>PRINT SCREEN</code>: 将当前活动程序窗口以图像方式拷贝到剪贴板；</li>
 <li><code>Windows</code> + <code>Shift</code> + <code>S</code>: 打开截图工具；(仅在 Windows10 1809 及以上系统可用)</li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>__dirname、__filename 和 process.cwd() 三者的区别</title>
-      <link>https://www.songjun520.cn/note/node-js/current-path.html</link>
-      <guid>https://www.songjun520.cn/note/node-js/current-path.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">__dirname、__filename 和 process.cwd() 三者的区别</source>
-      <pubDate>Tue, 10 Sep 2019 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h1 id="dirname、-filename-和-process-cwd-三者的区别" tabindex="-1"> <code>__dirname</code>、<code>__filename</code> 和 <code>process.cwd()</code> 三者的区别</h1>
-<ol>
-<li>
-<p><code>process.cwd()</code> 方法返回 Node.js 进程当前工作的目录</p>
-<p>例: 我在 <code>F:\自己的文件\自己在网上学习的知识点\node学习\node-API\process</code> 这个文件加下面创建了一个 test.js 在该 js 文件中写下下面的代码，然后右键 <code>run test.js</code></p>
-<div><pre><code><span>const</span> cwd <span>=</span> process<span>.</span><span>cwd</span><span>(</span><span>)</span><span>;</span>
-console<span>.</span><span>log</span><span>(</span>cwd<span>)</span><span>;</span>
-</code></pre><div aria-hidden="true"><div></div><div></div></div></div><p>输出如下 <code>F:\自己的文件\自己在网上学习的知识点\node学习\node-API\process</code></p>
-</li>
-<li>
-<p><code>__dirname</code> 是 Node.js 的一个全局变量，获得当前文件所在目录的完整目录名</p>
-<p>还在上面的 js 文件中输入一下代码</p>
-<div><pre><code>console<span>.</span><span>log</span><span>(</span>__dirname<span>)</span><span>;</span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>输出如下 <code>F:\自己的文件\自己在网上学习的知识点\node学习\node-API\process</code></p>
-<p>现在一看感觉上面两个方法是一样的，其实不是。node.js 进程当前工作的目录有可能不是该文件所在目录的完整目录。例如: 我用 <code>node webpack ..</code> 打包了一个应用程序，
-我用这个应用程序可以生产出一套完整的页面架构，在应用程序的配置文件中 console.log(cwd)
-在完整的这个页面架构中执行启动这个项目的命令，则对应的 cwd 就是当前项目所在的绝对路径,而不是应用程序的路径</p>
-</li>
-<li>
-<p><code>__filename</code> 也是 Node.js 的全局变量 Node.js 中，在任何模块文件内部，可以使用 <code>__filename</code> 变量获取当前模块文件的带有完整绝对路径的文件名</p>
-</li>
-</ol>
-<div><pre><code>console<span>.</span><span>log</span><span>(</span>__filename<span>)</span><span>;</span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>输出 <code>F:\自己的文件\自己在网上学习的知识点\node 学习\node-API\process\test.js</code></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>NodeJS</title>
-      <link>https://www.songjun520.cn/note/node-js/</link>
-      <guid>https://www.songjun520.cn/note/node-js/</guid>
-      <source url="https://www.songjun520.cn/rss.xml">NodeJS</source>
-      <pubDate>Thu, 04 Aug 2022 09:52:31 GMT</pubDate>
-      <content:encoded><![CDATA[<h2 id="目录" tabindex="-1"> 目录</h2>
-<ul>
-<li><a href="/note/node-js/current-path.html">current-path 相关</a></li>
 </ul>
 ]]></content:encoded>
     </item>
@@ -10440,780 +10693,6 @@ hard
 <li>软链接可以链接目录。</li>
 <li>软链接可以跨分区。</li>
 </ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>其他文件命令</title>
-      <link>https://www.songjun520.cn/linux/command/other.html</link>
-      <guid>https://www.songjun520.cn/linux/command/other.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">其他文件命令</source>
-      <category>Linux</category>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h2 id="cp-命令" tabindex="-1"> cp 命令</h2>
-<p>cp 命令，主要用来复制文件和目录，同时借助某些选项，还可以实现复制整个目录，以及比对两文件的新旧而予以升级等功能。</p>
-<p>cp 命令的基本格式如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> <span>[</span>选项<span>]</span> 源文件 目标文件</span></span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>选项:</p>
-<ul>
-<li>-a: 相当于 -d、-p、-r 选项的集合，这几个选项我们一一介绍；</li>
-<li>-d: 如果源文件为软链接(对硬链接无效)，则复制出的目标文件也为软链接；</li>
-<li>-i: 询问，如果目标文件已经存在，则会询问是否覆盖；</li>
-<li>-l: 把目标文件建立为源文件的硬链接文件，而不是复制源文件；</li>
-<li>-s: 把目标文件建立为源文件的软链接文件，而不是复制源文件；</li>
-<li>-p: 复制后目标文件保留源文件的属性(包括所有者、所属组、权限和时间)；</li>
-<li>-r: 递归复制，用于复制目录；</li>
-<li>-u: 若目标文件比源文件有差异，则使用该选项可以更新目标文件，此选项可用于对文件的升级和备用。</li>
-</ul>
-<p>需要注意的是，源文件可以有多个，但这种情况下，目标文件必须是目录才可以。</p>
-<h3 id="cp-命令基本用法" tabindex="-1"> cp 命令基本用法</h3>
-<p>cp 命令既可以复制文件，也可以复制目录。我们先来看看如何复制文件，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> cangls</span></span>
-<span>#建立源文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> cangls /tmp/</span></span>
-<span>#把源文件不改名复制到 /tmp/ 目录下
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div></div></div><p>如果需要改名复制，则命令如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> cangls /tmp/bols</span></span>
-<span>#改名复制
-</span></code></pre><div aria-hidden="true"><div></div><div></div></div></div><p>如果复制的目标位置已经存在同名的文件，则会提示是否覆盖，因为 cp 命令默认执行的是 <code>cp -i</code> 的别名，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> cangls /tmp/</span></span>
-<span>cp:是否覆盖"/tmp/cangls"?y
-#目标位置有同名文件，所以会提示是否覆盖
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div></div></div><p>接下来我们看看如何复制目录，其实复制目录只需使用 <code>-r</code> 选项即可，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mkdir</span> movie</span></span>
-<span>#建立测试目录
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> -r /root/movie/ /tmp/</span></span>
-<span>#目录原名复制
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div></div></div><h3 id="复制软链接文件" tabindex="-1"> 复制软链接文件</h3>
-<p>如果源文件不是一个普通文件，而是一个软链接文件，那么是否可以复制软链接的属性呢? 我们试试:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>ln</span> -s /root/cangls /tmp/cangls_slink</span></span>
-<span>#建立一个测试软链接文件/tmp/cangls_slink
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll /tmp/cangls_slink</span></span>
-<span>lrwxrwxrwx 1 root root 12 6 月 14 05:53 /tmp/cangls_slink -> /root/cangls
-#源文件本身就是一个软链接文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> /tmp/cangls_slink /tmp/cangls_t1</span></span>
-<span>#复制软链接文件，但是不加"-d"选项
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> -d /tmp/cangls_slink /tmp/cangls_t2</span></span>
-<span>#复制软链接文件，加入"-d"选项
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll /tmp/cangls_t1 /tmp/cangls_t2</span></span>
-<span>-rw-r--r-- 1 root root 0 6月 14 05:56 /tmp/cangls_t1
-#会发现不加"-d"选项，实际复制的是软链接的源文件，而不是软链接文件
-lrwxrwxrwx 1 root root 12 6 月 14 05:56/tmp/ cangls_t2-> /root/cangls
-#而如果加入了"-d"选项，则会复制软链接文件
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>这个例子说明，如果在复制软链接文件时不使用 <code>-d</code> 选项，则 <code>cp</code> 命令复制的是源文件，而不是软链接文件；只有加入了 <code>-d</code> 选项，才会复制软链接文件。请大家注意，<code>-d</code> 选项对硬链接是无效的。</p>
-<h3 id="保留源文件属性复制" tabindex="-1"> 保留源文件属性复制</h3>
-<p>我们发现，在执行复制命令后，目标文件的时间会变成复制命令的执行时间，而不是源文件的时间。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> /var/lib/mlocate/mlocate.db /tmp/</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll /var/lib/mlocate/mlocate.db</span></span>
-<span>-rw-r-----1 root slocate2328027 6月 14 02:08/var/lib/mlocate/mlocate.db
-#注意源文件的时间和所属组
-[root@localhost ~]#ll /tmp/mlocate.db
--rw-r----- 1 root root2328027 6 月 14 06:05/tmp/mlocate.db
-#由于复制命令由root用户执行，所以目标文件的所属组为了root，而且时间也变成了复制命令的执行时间
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>而当我们执行备份、曰志备份的时候，这些文件的时间可能是一个重要的参数，这就需执行 <code>-p</code> 选项了。这个选项会保留源文件的属性，包括所有者、所属组和时间。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> -p /var/lib/mlocate/mlocate.db /tmp/mlocate.db_2</span></span>
-<span>#使用"-p"选项
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll /var/lib/mlocate/mlocate.db /tmp/mlocate.db_2</span></span>
-<span>-rw-r----- root slocate 2328027 6月 14 02:08 /tmp/mlocate.db_2
--rw-r----- root slocate 2328027 6月 14 02:08 /var/lib/mlocate/mlocate.db
-#源文件和目标文件的所有属性都一致，包括时间
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>我们之前讲过，<code>-a</code> 选项相当于 &quot;-d、-p、-r&quot; 选项，这几个选项我们已经分别讲过了。所以，当我们使用 <code>-a</code> 选项时，目标文件和源文件的所有属性都一致，包括源文件的所有者，所属组、时间和软链接性。使用 <code>-a</code> 选项来取代 &quot;-d、-p、-r&quot; 选项更加方便。</p>
-<h3 id="l-和-s-选项" tabindex="-1"> &quot;-l&quot; 和 &quot;-s&quot; 选项</h3>
-<p>我们如果使用 <code>-l</code> 选项，则目标文件会被建立为源文件的硬链接；而如果使用了 <code>-s</code> 选项，则目标文件会被建立为源文件的软链接。</p>
-<p>这两个选项和 <code>-d</code> 选项是不同的，<code>d</code> 选项要求源文件必须是软链接，目标文件才会复制为软链接；而 <code>-l</code> 和 <code>-s</code> 选项的源文件只需是普通文件，目标文件就可以直接复制为硬链接和软链接。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> bols</span></span>
-<span>#建立测试文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll -i bols</span></span>
-<span>262154-rw-r--r-- 1 root root 0 6月 14 06:26 bols
-#源文件只是一个普通文件，而不是软链接文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> -l /root/bols /tmp/bols_h</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cp</span> -s /root/bols /tmp/bols_s</span></span>
-<span>#使用"-l" 和"-s"选项复制
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>ll -i /tmp/bols_h /tmp/bols_s</span></span>
-<span>262154-rw-r--r-- 2root root 0 6 月 14 06:26/tmp/bols_h
-#目标文件 /tmp/bols_h 为源文件的硬链接文件
-932113 lrwxrwxrwx 1 root root 10 6 月 14 06:27/tmp/bols_s -> /root/bols
-#目标文件 /tmp/bols_s 为源文件的软链接文件
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="rm-命令" tabindex="-1"> rm 命令</h2>
-<p>当 Linux 系统使用很长时间之后，可能会有一些已经没用的文件(即垃圾)，这些文件不但会消耗宝贵的硬盘资源，还是降低系统的运行效率，因此需要及时地清理。</p>
-<p>rm 是强大的删除命令，它可以永久性地删除文件系统中指定的文件或目录。在使用 rm 命令删除文件或目录时，系统不会产生任何提示信息。此命令的基本格式为:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>rm<span>[</span>选项<span>]</span> 文件或目录</span></span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>选项:</p>
-<ul>
-<li>-f: 强制删除(force)，和 <code>-i</code> 选项相反，使用 <code>-f</code>，系统将不再询问，而是直接删除目标文件或目录。</li>
-<li>-i: 和 <code>-f</code> 正好相反，在删除文件或目录之前，系统会给出提示信息，使用 <code>-i</code> 可以有效防止不小心删除有用的文件或目录。</li>
-<li>-r: 递归删除，主要用于删除目录，可删除指定目录及包含的所有内容，包括所有的子目录和文件。</li>
-</ul>
-<div><p>提示</p>
-<p>rm 命令是一个具有破坏性的命令，因为 rm 命令会永久性地删除文件或目录，这就意味着，如果没有对文件或目录进行备份，一旦使用 rm 命令将其删除，将无法恢复，因此，尤其在使用 rm 命令删除目录时，要慎之又慎。</p>
-</div>
-<h3 id="基本用法" tabindex="-1"> 基本用法</h3>
-<p>rm 命令如果任何选项都不加，则默认执行的是 <code>rm -i 文件名</code>，也就是在删除一个文件之前会先询问是否删除。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> cangls</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>rm</span> cangls</span></span>
-<span>rm:是否删除普通空文件"cangls"?y
-#删除前会询问是否删除
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div></div></div><h3 id="删除目录" tabindex="-1"> 删除目录</h3>
-<p>如果需要删除目录，则需要使用 <code>-r</code> 选项。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mkdir</span> -p /test/lm/movie/jp</span></span>
-<span>#递归建立测试目录
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>rm</span> /test</span></span>
-<span>rm:无法删除"/test/": 是一个目录
-#如果不加"-r"选项，则会报错
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>rm</span> -r /test</span></span>
-<span>rm:是否进入目录"/test"?y
-rm:是否进入目录"/test/lm/movie"?y
-rm:是否删除目录"/test/lm/movie/jp"?y
-rm:是否删除目录"/test/lm/movie"?y
-rm:是否删除目录"/test/lm"?y
-rm:是否删除目录"/test"?y
-#会分别询问是否进入子目录、是否删除子目录
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>大家会发现，如果每级目录和每个文件都需要确认，那么在实际使用中简直是灾难!</p>
-<h3 id="强制删除" tabindex="-1"> 强制删除</h3>
-<p>如果要删除的目录中有 1 万个子目录或子文件，那么普通的 rm 删除最少需要确认 1 万次。所以，在真正删除文件的时候，我们会选择强制删除。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mkdir</span> -p /test/lm/movie/jp</span></span>
-<span>#重新建立测试目录
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>rm</span> -rf /test</span></span>
-<span>#强制删除，一了百了
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div></div></div><p>加入了强制功能之后，删除就会变得很简单，但是需要注意，数据强制删除之后无法恢复，除非依赖第三方的数据恢复工具，如 extundelete 等。但要注意，数据恢复很难恢复完整的数据，一般能恢复 70%~80% 就很难得了。所以，与其把宝压在数据恢复上，不如养成良好的操作习惯。</p>
-<p>虽然 <code>-rf</code> 选项是用来删除目录的，但是删除文件也不会报错。所以，为了使用方便，一般不论是删除文件还是删除目录，都会直接使用 <code>-rf</code> 选项。</p>
-<h2 id="mv-命令" tabindex="-1"> mv 命令</h2>
-<p>mv 命令(move 的缩写)，既可以在不同的目录之间移动文件或目录，也可以对文件和目录进行重命名。该命令的基本格式如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> 【选项】 源文件 目标文件</span></span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>选项:</p>
-<ul>
-<li>-f: 强制覆盖，如果目标文件已经存在，则不询问，直接强制覆盖；</li>
-<li>-i: 交互移动，如果目标文件已经存在，则询问用户是否覆盖(默认选项)；</li>
-<li>-n: 如果目标文件已经存在，则不会覆盖移动，而且不询问用户；</li>
-<li>-v: 显示文件或目录的移动过程；</li>
-<li>-u: 若目标文件已经存在，但两者相比，源文件更新，则会对目标文件进行升级；</li>
-</ul>
-<p>需要注意的是，同 rm 命令类似，mv 命令也是一个具有破坏性的命令，如果使用不当，很可能给系统带来灾难性的后果。</p>
-<h3 id="移动文件或目录" tabindex="-1"> 移动文件或目录</h3>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> cangls /tmp</span></span>
-<span>#移动之后，源文件会被删除，类似剪切
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mkdir</span> movie</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> movie/ /tmp</span></span>
-<span>#也可以移动目录。和 rm、cp 不同的是，mv 移动目录不需要加入 "-r" 选项
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div></div><p>如果移动的目标位置已经存在同名的文件，则同样会提示是否覆盖，因为 mv 命令默认执行的也是 <code>mv -i</code> 的别名，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> cangls</span></span>
-<span>#重新建立文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> cangls /tmp</span></span>
-<span>mv:县否覆盖"tmp/cangls"? y
-#由于 /tmp 目录下已经存在 cangls 文件，所以会提示是否覆盖，需要手工输入 y 覆盖移动
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div></div><h3 id="强制移动" tabindex="-1"> 强制移动</h3>
-<p>之前说过，如果目标目录下已经存在同名文件，则会提示是否覆盖，需要手工确认。这时如果移动的同名文件较多，则需要一个一个文件进行确认，很不方便。</p>
-<p>如果我们确认需要覆盖已经存在的同名文件，则可以使用 <code>-f</code> 选项进行强制移动，这就不再需要用户手工确认了。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> cangls</span></span>
-<span>#重新建立文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> -f cangls /tmp</span></span>
-<span>#就算 /tmp/ 目录下已经存在同名的文件，由于"-f"选项的作用，所以会强制覆盖
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div></div></div><h3 id="不覆盖移动" tabindex="-1"> 不覆盖移动</h3>
-<p>既然可以强制覆盖移动，那也有可能需要不覆盖的移动。如果需要移动几百个同名文件，但是不想覆盖，这时就需要 <code>-n</code> 选项的帮助了。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>ls</span> /tmp</span></span>
-<span>/tmp/bols /tmp/cangls
-#在/tmp/目录下已经存在bols、cangls文件了
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> -vn bols cangls lmls /tmp/、</span></span>
-<span>"lmls"->"/tmp/lmls"
-#再向 /tmp/ 目录中移动同名文件，如果使用了 "-n" 选项，则可以看到只移动了 lmls，而同名的 bols 和 cangls 并没有移动("-v" 选项用于显示移动过程)
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h3 id="改名" tabindex="-1"> 改名</h3>
-<p>如果源文件和目标文件在同一目录中，那就是改名。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> bols lmls</span></span>
-<span>#把 bols 改名为 lmls
-</span></code></pre><div aria-hidden="true"><div></div><div></div></div></div><p>目录也可以按照同样的方法改名。</p>
-<h3 id="显示移动过程" tabindex="-1"> 显示移动过程</h3>
-<p>如果我们想要知道在移动过程中到底有哪些文件进行了移动，则可以使用 <code>-v</code> 选项来查看详细的移动信息。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>touch</span> test1.txt test2.txt test3.txt</span></span>
-<span>#建立三个测试文件
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> -v *.txt /tmp</span></span>
-<span>"test1.txt" -> "/tmp/test1.txt"
-"test2.txt" -> "/tmp/test2.txt"
-"test3.txt" -> "/tmp/test3.txt"
-#加入"-v"选项，可以看到有哪些文件进行了移
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>]]></content:encoded>
-    </item>
-    <item>
-      <title>环境变量</title>
-      <link>https://www.songjun520.cn/linux/command/path.html</link>
-      <guid>https://www.songjun520.cn/linux/command/path.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">环境变量</source>
-      <category>Linux</category>
-      <pubDate>Wed, 20 Nov 2019 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h1 id="环境变量" tabindex="-1"> 环境变量</h1>
-<h2 id="变量" tabindex="-1"> 变量</h2>
-<p>变量是计算机系统用于保存可变值的数据类型，我们可以直接通过变量名称来提取到对应的变量值。在 Linux 系统中，环境变量是用来定义系统运行环境的一些参数，比如每个用户不同的家目录 (HOME)、邮件存放位置 (MAIL)等。
-值得一提的是，Linux 系统中环境变量的名称一般都是大写的，这是一种约定俗成的规范。</p>
-<p>我们可以使用 env 命令来查看到 Linux 系统中所有的环境变量，执行命令如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>env</span></span></span>
-<span>ORBIT_SOCKETDIR=/tmp/orbit-root
-HOSTNAME=livecd.centos
-GIO_LAUNCHED_DESKTOP_FILE_PID=2065
-TERM=xterm
-SHELL=/bin/bash
-......
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>Linux 系统能够正常运行并且为用户提供服务，需要数百个环境变量来协同工作，但是，我们没有必要逐一学习每个变量。常见变量见下表:</p>
-<table>
-<thead>
-<tr>
-<th>环境变量名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HOME</td>
-<td>用户的主目录(也称家目录)</td>
-</tr>
-<tr>
-<td>SHELL</td>
-<td>用户使用的 Shell 解释器名称</td>
-</tr>
-<tr>
-<td>PATH</td>
-<td>定义命令行解释器搜索用户执行命令的路径</td>
-</tr>
-<tr>
-<td>EDITOR</td>
-<td>用户默认的文本解释器</td>
-</tr>
-<tr>
-<td>RANDOM</td>
-<td>生成一个随机数字</td>
-</tr>
-<tr>
-<td>LANG</td>
-<td>系统语言、语系名称</td>
-</tr>
-<tr>
-<td>HISTSIZE</td>
-<td>输出的历史命令记录条数</td>
-</tr>
-<tr>
-<td>HISTFILESIZE</td>
-<td>保存的历史命令记录条数</td>
-</tr>
-<tr>
-<td>PS1</td>
-<td>Bash 解释器的提示符</td>
-</tr>
-<tr>
-<td>MAIL</td>
-<td>邮件保存路径</td>
-</tr>
-</tbody>
-</table>
-<p>Linux 作为一个多用户多任务的操作系统，能够为每个用户提供独立的、合适的工作运行环境，因此，一个相同的环境变量会因为用户身份的不同而具有不同的值。</p>
-<p>例如，使用下述命令来查看 <code>HOME</code> 变量在不同用户身份下都有哪些值:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>echo</span> <span>$HOME</span></span></span>
-<span>/root
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>su</span> - user1  <span>&lt;</span>--切换到 user1 用户身份</span></span>
-<span><span><span>[user1@localhost ~]</span></span><span>$</span> <span><span>echo</span> <span>$HOME</span></span></span>
-<span>/home/user1
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div></div><p>这里的 <code>su</code> 命令可以临时切换用户身份，此命令的具体用法会在后续章节做详细介绍。</p>
-<p>其实，环境变量是由固定的变量名与用户或系统设置的变量值两部分组成的，我们完全可以自行创建环境变量来满足工作需求。例如，设置一个名称为 <code>WORKDIR</code> 的环境变量，方便用户更轻松地进入一个层次较深的目录，执行命令如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mkdir</span> /home/work1</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>WORKDIR</span><span>=</span>/home/work1</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>cd</span> <span>$WORKDIR</span></span></span>
-<span><span><span>[root@localhost work1]</span></span><span>#</span> <span><span>pwd</span></span></span>
-<span>/home/work1
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div></div><p>但是，这样的环境变量不具有全局性，作用范围也有限，默认情况下不能被其他用户使用。如果工作需要，可以使用 <code>export</code> 命令将其提升为全局环境变量，这样其他用户就可以使用它了:</p>
-<div><pre><code><span><span><span>[root@localhost work1]</span></span><span>#</span> <span><span>su</span> user1  <span>&lt;</span>-- 切换到 user1，发现无法使用 WORKDIR 自定义变量</span></span>
-<span><span><span>[user1@localhost ~]</span></span><span>$</span> <span><span>cd</span> <span>$WORKDIR</span></span></span>
-<span><span><span>[user1@localhost ~]</span></span><span>$</span> <span><span>echo</span> <span>$WORKDIR</span></span></span>
-
-<span><span><span>[user1@localhost ~]</span></span><span>$</span> <span><span>exit</span> <span>&lt;</span>--退出user1身份</span></span>
-<span><span><span>[root@localhost work1]</span></span><span>#</span> <span><span>export</span> WORKDIR</span></span>
-<span><span><span>[root@localhost work1]</span></span><span>#</span> <span><span>su</span> user1</span></span>
-<span><span><span>[user1@localhost ~]</span></span><span>$</span> <span><span>cd</span> <span>$WORKDIR</span></span></span>
-<span><span><span>[user1@localhost work1]</span></span><span>$</span> <span><span>pwd</span></span></span>
-<span>/home/work1
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><h2 id="path" tabindex="-1"> path</h2>
-<p>在讲解 PATH 环境变量之前，首先介绍一下 <code>which</code> 命令，它用于查找某个命令所在的绝对路径。例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>which</span> <span>rm</span></span></span>
-<span>/bin/rm
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>which</span> <span>rmdir</span></span></span>
-<span>/bin/rmdir
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>which</span> <span>ls</span></span></span>
-<span>alias ls='ls --color=auto'
-        /bin/ls
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>注意，<code>ls</code> 是一个相对特殊的命令，它使用 alias 命令做了别名，也就是说，我们常用的 <code>ls</code> 实际上执行的是 <code>ls --color=auto</code>。</p>
-<p>通过使用 <code>which</code> 命令，可以查找各个外部命令(和 Shell 内置命令相对)所在的绝对路径。学到这里，读者是否有这样一个疑问，为什么前面在使用 <code>rm</code>、<code>rmdir</code>、<code>ls</code> 等命令时，无论当前位于哪个目录，都可以直接使用，而无需指明命令的执行文件所在的位置 (绝对路径) 呢? 其实，这是 PATH 环境变量在起作用。</p>
-<p>首先，执行如下命令:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>echo</span> <span>$PATH</span></span></span>
-<span>/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/root/bin
-</span></code></pre><div aria-hidden="true"><div></div><div></div></div></div><p>这里的 <code>echo</code> 命令用来输出 PATH 环境变量的值(这里的 <code>$</code> 是 PATH 的前缀符号)，PATH 环境变量的内容是由一堆目录组成的，各目录之间用冒号 <code>:</code> 隔开。当执行某个命令时，Linux 会依照 PATH 中包含的目录依次搜寻该命令的可执行文件，一旦找到，即正常执行；反之，则提示无法找到该命令。
-如果在 PATH 包含的目录中，有多个目录都包含某命令的可执行文件，那么会执行先搜索到的可执行文件。</p>
-<p>从执行结果中可以看到，<code>/bin</code> 目录已经包含在 PATH 环境变量中，因此在使用类似 <code>rm</code>、<code>rmdir</code>、<code>ls</code> 等命令时，即便直接使用其命令名，Linux 也可以找到该命令。</p>
-<p>为了印证以上观点，下面举个反例，如果我们将 <code>ls</code> 命令移动到 <code>/root</code> 目录下，由于 PATH 环境变量中没有包含此目录，所有当直接使用 <code>ls</code> 命令名执行时，Linux 将无法找到此命令的可执行文件，并提示 <code>No such file or directory</code>，示例命令如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> /bin/ls /root</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>ls</span></span></span>
-<span>bash: /bin/ls: No such file or directory
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div></div></div><p>此时，如果仍想使用 <code>ls</code> 命令，有 2 种方法，一种是直接将 <code>/root</code> 添加到 PATH 环境变量中，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span><span>PATH</span></span><span>=</span><span>$PATH</span>:/root</span></span>
-<span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>echo</span> <span>$PATH</span></span></span>
-<span>/usr/local/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/bin:/root/bin:/root
-</span><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>ls</span></span></span>
-<span>Desktop    Downloads    Music    post-install     Public    Videos
-Documents  ls           Pictures post-install.org Templates
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>注意，这种方式只是临时有效，一旦退出下次再登陆的时候，<code>$PATH</code> 就恢复成了默认值。</p>
-<p>另一种方法是以绝对路径的方式使用此命令，例如:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span>/root/ls</span></span>
-<span>Desktop    Downloads    Music    post-install     Public    Videos
-Documents  ls           Pictures post-install.org Templates
-</span></code></pre><div aria-hidden="true"><div></div><div></div><div></div></div></div><p>为了不影响系统的正常使用，强烈建议大家将移动后的 <code>ls</code> 文件还原，命令如下:</p>
-<div><pre><code><span><span><span>[root@localhost ~]</span></span><span>#</span> <span><span>mv</span> /root/ls /bin</span></span>
-</code></pre><div aria-hidden="true"><div></div></div></div>]]></content:encoded>
-    </item>
-    <item>
-      <title>Linux 命令格式</title>
-      <link>https://www.songjun520.cn/linux/command/</link>
-      <guid>https://www.songjun520.cn/linux/command/</guid>
-      <source url="https://www.songjun520.cn/rss.xml">Linux 命令格式</source>
-      <category>Linux</category>
-      <pubDate>Mon, 18 Nov 2019 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h2 id="目录" tabindex="-1"> 目录</h2>
-<ul>
-<li>
-<p><a href="/linux/command/command.html">命令格式简介</a></p>
-</li>
-<li>
-<p><a href="/linux/command/dir.html">目录相关</a></p>
-</li>
-<li>
-<p><a href="/linux/command/file.html">文件相关</a></p>
-</li>
-<li>
-<p><a href="/linux/command/other.html">其他命令</a></p>
-</li>
-<li>
-<p><a href="/linux/command/add.html">命令的自动补全</a></p>
-</li>
-<li>
-<p><a href="/linux/command/excu.html">命令的执行</a></p>
-</li>
-<li>
-<p><a href="/linux/command/path.html">环境变量</a></p>
-</li>
-<li>
-<p><a href="/linux/command/ln.html">创建链接</a></p>
-</li>
-</ul>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>其他指令</title>
-      <link>https://www.songjun520.cn/linux/command/temp.html</link>
-      <guid>https://www.songjun520.cn/linux/command/temp.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">其他指令</source>
-      <category>Linux</category>
-      <pubDate>Thu, 04 Aug 2022 09:52:31 GMT</pubDate>
-      <content:encoded><![CDATA[<h1 id="其他指令" tabindex="-1"> 其他指令</h1>
-<h2 id="文件" tabindex="-1"> 文件</h2>
-<h3 id="创建文件" tabindex="-1"> 创建文件</h3>
-<ul>
-<li>touch</li>
-<li>vi</li>
-</ul>
-<h3 id="编辑文件" tabindex="-1"> 编辑文件</h3>
-<ul>
-<li>vi</li>
-</ul>
-<div><p>提示</p>
-<p>使用 vi 命令后，默认进入浏览模式。</p>
-<p>按 <code>i</code> 进入 insert 模式， 按 <code>ESC</code> 退出。</p>
-<ol>
-<li>
-<p>命令模式下，输入: <code>/</code> 字符串</p>
-<p>比如搜索 user, 输入 <code>/user</code></p>
-<p>按下回车之后，可以看到 vim 已经把光标移动到该字符处和高亮了匹配的字符串</p>
-</li>
-<li>
-<p>查看下一个匹配，按下 n(小写 n)</p>
-</li>
-<li>
-<p>跳转到上一个匹配，按下 N(大写 N)</p>
-</li>
-<li>
-<p>搜索后，我们打开别的文件，发现也被高亮了，怎么关闭高亮?</p>
-</li>
-</ol>
-<p>命令模式下，输入 <code>:nohlsearch</code> 也可以 <code>:set nohlsearch</code>；当然，可以简写，<code>noh</code> 或者 <code>set noh</code>。</p>
-</div>
-<h3 id="重命名文件" tabindex="-1"> 重命名文件</h3>
-<ul>
-<li>rename</li>
-</ul>
-<h3 id="移动文件" tabindex="-1"> 移动文件</h3>
-<ul>
-<li>mv</li>
-</ul>
-<div><p>提示</p>
-<p>该命令也可用于重命名</p>
-</div>
-<h3 id="文件浏览" tabindex="-1"> 文件浏览</h3>
-<ul>
-<li>pwd: 查看当前目录</li>
-<li>cd: 移动当前目录</li>
-<li>ls: 列出当前目录
-<ul>
-<li><code>-l</code>: 以表格列出当前目录详情</li>
-<li><code>-a</code>: 包括隐藏文件</li>
-</ul>
-</li>
-</ul>
-<h2 id="权限" tabindex="-1"> 权限</h2>
-<ul>
-<li>chmod: 查看/更改文件或文件夹权限</li>
-</ul>
-<p><code>chmod</code> 是权限管理命令 <code>change the permissions mode of a file</code> 的缩写。</p>
-<p><code>u</code> 代表所有者，<code>x</code> 代表执行权限。<code>+</code> 表示增加权限。</p>
-<div><pre><code><span>chmod</span> u+x file.sh
-</code></pre><div aria-hidden="true"><div></div></div></div><div><pre><code><span>chmod</span> 权限数字 文件名
-</code></pre><div aria-hidden="true"><div></div></div></div><ul>
-<li>
-<p>r 读权限 read 4</p>
-</li>
-<li>
-<p>w 写权限 write 2</p>
-</li>
-<li>
-<p>x 操作权限 execute 1</p>
-</li>
-</ul>
-<div><pre><code><span>chmod</span> <span>600</span> id_rsa
-</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="用户组" tabindex="-1"> 用户组</h2>
-<h3 id="管理用户组" tabindex="-1"> 管理用户组</h3>
-<p>groupadd groupname 　　添加用户组</p>
-<p>groupdel groupname 　　删除用户组</p>
-<p>##　添加用户到用户组
-将一个用户添加到用户组中，千万不能直接用:</p>
-<div><pre><code><span>usermod</span> -G groupA
-</code></pre><div aria-hidden="true"><div></div></div></div><p>这样做会使您离开其他用户组，仅仅做为 这个用户组 groupA 的成员。</p>
-<p>应该用 加上 <code>-a</code> 选项:</p>
-<div><pre><code><span>usermod</span> -a -G groupA user
-<span>(</span>FC4: <span>usermod</span> -G groupA,groupB,groupC user<span>)</span>
-</code></pre><div aria-hidden="true"><div></div><div></div></div></div><p><code>-a</code> 代表 <code>append</code>， 也就是 将自己添加到 用户组 groupA 中，而不必离开 其他用户组。</p>
-<p>命令的所有的选项，及其含义:</p>
-<div><pre><code>Options:
-
--c, –comment COMMENT new value of the GECOS field
--d, –home HOME_DIR new home directory for the user account
--e, –expiredate EXPIRE_DATE set account expiration date to EXPIRE_DATE
--f, –inactive INACTIVE set password inactive after expiration
-to INACTIVE
--g, –gid GROUP force use GROUP as new primary group
--G, –groups GROUPS new list of supplementary GROUPS
--a, –append append the user to the supplemental GROUPS
-mentioned by the -G option without removing
-him/her from other groups
--h, –help display this help message and exit
--l, –login NEW_LOGIN new value of the login name
--L, –lock lock the user account
--m, –move-home move contents of the home directory to the new
-location (use only with -d)
--o, –non-unique allow using duplicate (non-unique) UID
--p, –password PASSWORD use encrypted password for the new password
--s, –shell SHELL new login shell for the user account
--u, –uid UID new UID for the user account
--U, –unlock unlock the user account
-</code></pre><div aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><p>查看用户所属的组使用命令:</p>
-<div><pre><code><span>groups</span> user
-</code></pre><div aria-hidden="true"><div></div></div></div><p>或者查看文件:</p>
-<div><pre><code><span>cat</span> /etc/group
-</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="用户" tabindex="-1"> 用户</h2>
-<p><code>cat /etc/passwd</code> 查看用户列表</p>
-<h3 id="添加用户" tabindex="-1"> 添加用户</h3>
-<div><pre><code><span>sudo</span> <span>useradd</span> <span>[</span>用户名<span>]</span>
-</code></pre><div aria-hidden="true"><div></div></div></div><p>创建新用户: useradd</p>
-<p><code>-d</code> 指定目录文件夹</p>
-<p><code>-m</code> 新账号名</p>
-<p>如:</p>
-<div><pre><code><span>useradd</span> -d /www/abc -m abc
-</code></pre><div aria-hidden="true"><div></div></div></div><ul>
-<li><code>-c</code>: comment 指定一段注释性描述。</li>
-<li><code>-d</code>: 目录 指定用户主目录，如果此目录不存在，则同时使用-m 选项，可以创建主目录。</li>
-<li><code>-g</code>: 用户组 指定用户所属的用户组。</li>
-<li><code>-G</code>: 用户组，用户组 指定用户所属的附加组。</li>
-<li><code>-s</code>: Shell 文件 指定用户的登录 Shell。</li>
-<li><code>-u</code>: 用户号 指定用户的用户号，如果同时有-o 选项，则可以重复使用其他用户的标识号。</li>
-</ul>
-<h3 id="设置密码" tabindex="-1"> 设置密码</h3>
-<div><pre><code><span>sudo</span> <span>passwd</span> <span>[</span>用户名<span>]</span>
-</code></pre><div aria-hidden="true"><div></div></div></div><h2 id="删除用户" tabindex="-1"> 删除用户</h2>
-<div><pre><code><span>userdel</span> abc
-</code></pre><div aria-hidden="true"><div></div></div></div><div><p>提示</p>
-<p>使用 userdel abc 命令删除该用户时，并不能删除该用户的所有信息，只是删除了/etc/passwd、/etc/shadow、/etc/group/、/etc/gshadow 四个文件里的该账户和组的信息。默认情况下创建一个用户账号，会创建一个家目录和一个用户邮箱(在/var/spool/mail 目录以用户名命名)</p>
-<p>所以建议使用 <code>userdel -r abc</code> 删除用户。</p>
-</div>
-<h2 id="服务管理" tabindex="-1"> 服务管理</h2>
-<p>Linux 服务管理两种方式 service 和 systemctl</p>
-<ol>
-<li>
-<p>service 命令</p>
-<p>service 命令其实是去 <code>/etc/init.d</code> 目录下，去执行相关程序</p>
-<ul>
-<li>service 命令启动 redis 脚本</li>
-</ul>
-<div><pre><code><span>service</span> redis start
-</code></pre><div aria-hidden="true"><div></div></div></div><ul>
-<li>直接启动 redis 脚本</li>
-</ul>
-<div><pre><code>/etc/init.d/redis start
-</code></pre><div aria-hidden="true"><div></div></div></div><ul>
-<li>开机自启动</li>
-</ul>
-<div><pre><code>update-rc.d redis defaults
-</code></pre><div aria-hidden="true"><div></div></div></div><p>其中脚本需要我们自己编写</p>
-</li>
-<li>
-<p>systemctl 命令</p>
-<p>systemd 是 Linux 系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。</p>
-<p>systemd 对应的进程管理命令是 systemctl</p>
-</li>
-</ol>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>目录</title>
-      <link>https://www.songjun520.cn/linux/file/dir.html</link>
-      <guid>https://www.songjun520.cn/linux/file/dir.html</guid>
-      <source url="https://www.songjun520.cn/rss.xml">目录</source>
-      <category>Linux</category>
-      <pubDate>Sun, 17 Nov 2019 00:00:00 GMT</pubDate>
-      <content:encoded><![CDATA[<h2 id="linux-文件目录结构" tabindex="-1"> Linux 文件目录结构</h2>
-<p>学习 Linux，不仅限于学习各种命令，了解整个 Linux 文件系统的目录结构以及各个目录的功能同样至关重要。</p>
-<p>使用 Linux 时，通过命令行输入 <code>ls -l /</code> 可以看到，在 Linux 根目录 (/) 下包含很多的子目录(称为一级目录)，例如 <code>bin</code>、<code>boot</code>、<code>dev</code> 等。同时，各一级目录下还含有很多子目录(称为二级目录)，比如 <code>/bin/bash</code>、<code>/bin/ed</code> 等。Linux 文件系统目录总体呈现树形结构，<code>/</code> 根目录就相当于树根。</p>
-<p>由于 Linux 系统免费开源，使得 Linux 发行版本有很多，利用 Linux 开发产品的团队也有很多，如果任由每个人都按照自己的想法来配置 Linux 系统文件目录，后期可能会产生诸多的管理问题。试想，如果您进入一家公司，所用 Linux 系统的文件目录结构与所学的完全不同，实在令人头疼。</p>
-<p>为了避免诸多使用者对 Linux 系统目录结构天马行空，Linux 基金会发布了 FHS 标准。多数 Linux 发行版系统都遵循这一标准。</p>
-<div><p>提示</p>
-<p>FHS(Filesystem Hierarchy Standard)，文件系统层次化标准，该标准规定了 Linux 系统中所有一级目录以及部分二级目录(<code>/usr</code> 和 <code>/var</code>)的用途。发布此标准的主要目的就是为了让用户清楚地了解每个目录应该存放什么类型的文件。</p>
-</div>
-<h2 id="linux-根目录" tabindex="-1"> Linux 根目录(/)</h2>
-<p>FHS 认为，Linux 系统的根目录 (/) 最为重要(没有之一)，其原因有以下 2 点:</p>
-<ul>
-<li>所有目录都是由根目录衍生出来的；</li>
-<li>根目录与系统的开机、修复、还原密切相关；</li>
-</ul>
-<p>因此，根目录必须包含开机软件、核心文件、开机所需程序、函数库、修复系统程序等文件。</p>
-<table>
-<thead>
-<tr>
-<th>一级目录</th>
-<th>功能(作用)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/bin/</td>
-<td>存放系统命令，普通用户和 root 都可以执行。放在 <code>/bin</code> 下的命令在单用户模式下也可以执行</td>
-</tr>
-<tr>
-<td>/boot/</td>
-<td>系统启动目录，保存与系统启动相关的文件，如内核文件和启动引导程序(grub)文件等</td>
-</tr>
-<tr>
-<td>/dev/</td>
-<td>设备文件保存位置</td>
-</tr>
-<tr>
-<td>/etc/</td>
-<td>配置文件保存位置。系统内所有采用默认安装方式(rpm 安装)的服务配置文件全部保存在此目录中，如用户信息、服务的启动脚本、常用服务的配置文件等</td>
-</tr>
-<tr>
-<td>/home/</td>
-<td>普通用户的主目录(也称为家目录)。在创建用户时，每个用户要有一个默认登录和保存自己数据的位置，就是用户的主目录，所有普通用户的主目录是在 <code>/home/</code> 下建立一个和用户名相同的目录。如用户 liming 的主目录就是 <code>/home/liming</code></td>
-</tr>
-<tr>
-<td>/lib/</td>
-<td>系统调用的函数库保存位置</td>
-</tr>
-<tr>
-<td>/media/</td>
-<td>挂载目录。系统建议用来挂载媒体设备，如软盘和光盘</td>
-</tr>
-<tr>
-<td>/mnt/</td>
-<td>挂载目录。早期 Linux 中只有这一个挂载目录，并没有细分。系统建议这个目录用来挂载额外的设备，如 U 盘、移动硬盘和其他操作系统的分区</td>
-</tr>
-<tr>
-<td>/misc/</td>
-<td>挂载目录。系统建议用来挂载 NFS 服务的共享目录。虽然系统准备了三个默认挂载目录 <code>/media/</code>、<code>/mnt/</code>、<code>/misc/</code>，但是到底在哪个目录中挂载什么设备可以由管理员自己决定。例如，笔者在接触 Linux 的时候，默认挂载目录只有 /mnt/，所以养成了在 <code>/mnt/</code> 下建立不同目录挂载不同设备的习惯，如 <code>/mnt/cdrom/</code> 挂载光盘、<code>/mnt/usb/</code> 挂载 U 盘，都是可以的</td>
-</tr>
-<tr>
-<td>/opt/</td>
-<td>第三方安装的软件保存位置。这个目录是放置和安装其他软件的位置，手工安装的源码包软件都可以安装到这个目录中。不过笔者还是习惯把软件放到 <code>/usr/local/</code> 目录中，也就是说，<code>/usr/local/</code> 目录也可以用来安装软件</td>
-</tr>
-<tr>
-<td>/root/</td>
-<td>root 的主目录。普通用户主目录在 <code>/home/</code> 下，root 主目录直接在“/”下</td>
-</tr>
-<tr>
-<td>/sbin/</td>
-<td>保存与系统环境设置相关的命令，只有 root 可以使用这些命令进行系统环境设置，但也有些命令可以允许普通用户查看</td>
-</tr>
-<tr>
-<td>/srv/</td>
-<td>服务数据目录。一些系统服务启动之后，可以在这个目录中保存所需要的数据</td>
-</tr>
-<tr>
-<td>/tmp/</td>
-<td>临时目录。系统存放临时文件的目录，在该目录下，所有用户都可以访问和写入。建议此目录中不能保存重要数据，最好每次开机都把该目录清空</td>
-</tr>
-</tbody>
-</table>
-<p>FHS 针对根目录中包含的子目录仅限于上表，但除此之外，Linux 系统根目录下通常还包含下表中的几个一级目录。</p>
-<table>
-<thead>
-<tr>
-<th>一级目录</th>
-<th>功能(作用)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/lost+found/</td>
-<td>当系统意外崩溃或意外关机时，产生的一些文件碎片会存放在这里。在系统启动的过程中，fsck 工具会检查这里，并修复已经损坏的文件系统。这个目录只在每个分区中出现，例如，<code>/lost+found</code> 就是根分区的备份恢复目录，<code>/boot/lost+found</code> 就是 <code>/boot</code> 分区的备份恢复目录</td>
-</tr>
-<tr>
-<td>/proc/</td>
-<td>虚拟文件系统。该目录中的数据并不保存在硬盘上，而是保存到内存中。主要保存系统的内核、进程、外部设备状态和网络状态等。如 <code>/proc/cpuinfo</code> 是保存 CPU 信息的，<code>/proc/devices</code> 是保存设备驱动的列表的，<code>/proc/filesystems</code> 是保存文件系统列表的，<code>/proc/net</code> 是保存网络协议信息的......</td>
-</tr>
-<tr>
-<td>/sys/</td>
-<td>虚拟文件系统。和 <code>/proc/</code> 目录相似，该目录中的数据都保存在内存中，主要保存与内核相关的信息</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linux-usr-目录" tabindex="-1"> Linux /usr 目录</h2>
-<p>usr(注意不是 user)，全称为 Unix Software Resource，此目录用于存储系统软件资源。FHS 建议所有开发者，应把软件产品的数据合理的放置在 <code>/usr</code> 目录下的各子目录中，而不是为他们的产品创建单独的目录。</p>
-<p>Linux 系统中，所有系统默认的软件都存储在 <code>/usr</code> 目录下，<code>/usr</code> 目录类似 Windows 系统中 <code>C:\Windows\</code> + <code>C:\Program files\</code> 两个目录的综合体。</p>
-<p>FHS 建议，<code>/usr</code> 目录应具备下表所示的子目录。</p>
-<table>
-<thead>
-<tr>
-<th>子目录</th>
-<th>功能(作用)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/usr/bin/</td>
-<td>存放系统命令，普通用户和超级用户都可以执行。这些命令和系统启动无关，在单用户模式下不能执行</td>
-</tr>
-<tr>
-<td>/usr/sbin/</td>
-<td>存放根文件系统不必要的系统管理命令，如多数服务程序，只有 root 可以使用。</td>
-</tr>
-<tr>
-<td>/usr/lib/</td>
-<td>应用程序调用的函数库保存位置</td>
-</tr>
-<tr>
-<td>/usr/XllR6/</td>
-<td>图形界面系统保存位置</td>
-</tr>
-<tr>
-<td>/usr/local/</td>
-<td>手工安装的软件保存位置。我们一般建议源码包软件安装在这个位置</td>
-</tr>
-<tr>
-<td>/usr/share/</td>
-<td>应用程序的资源文件保存位置，如帮助文档、说明文档和字体目录</td>
-</tr>
-<tr>
-<td>/usr/src/</td>
-<td>源码包保存位置。我们手工下载的源码包和内核源码包都可以保存到这里。不过笔者更习惯把手工下载的源码包保存到 <code>/usr/local/src/</code> 目录中，把内核源码保存到 <code>/usr/src/linux/</code> 目录中</td>
-</tr>
-<tr>
-<td>/usr/include</td>
-<td>C/C++ 等编程语言头文件的放置目录</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linux-var-目录" tabindex="-1"> Linux /var 目录</h2>
-<p><code>/var</code> 目录用于存储动态数据，例如缓存、日志文件、软件运行过程中产生的文件等。通常，此目录下建议包含如下表所示的这些子目录。</p>
-<table>
-<thead>
-<tr>
-<th>/var 子目录</th>
-<th>功能(作用)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/var/lib/</td>
-<td>程序运行中需要调用或改变的数据保存位置。如 MySQL 的数据库保存在 <code>/var/lib/mysql/</code> 目录中</td>
-</tr>
-<tr>
-<td>/var/log/</td>
-<td>登陆文件放置的目录，其中所包含比较重要的文件如 <code>/var/log/messages</code>, <code>/var/log/wtmp</code> 等。</td>
-</tr>
-<tr>
-<td>/var/run/</td>
-<td>一些服务和程序运行后，它们的 PID(进程 ID)保存位置</td>
-</tr>
-<tr>
-<td>/var/spool/</td>
-<td>里面主要都是一些临时存放，随时会被用户所调用的数据，例如 <code>/var/spool/mail/</code> 存放新收到的邮件，<code>/var/spool/cron/</code> 存放系统定时任务。</td>
-</tr>
-<tr>
-<td>/var/www/</td>
-<td>RPM 包安装的 Apache 的网页主目录</td>
-</tr>
-<tr>
-<td>/var/nis 和/var/yp</td>
-<td>NIS 服务机制所使用的目录，nis 主要记录所有网络中每一个 client 的连接信息；yp 是 linux 的 nis 服务的日志文件存放的目录</td>
-</tr>
-<tr>
-<td>/var/tmp</td>
-<td>一些应用程序在安装或执行时，需要在重启后使用的某些文件，此目录能将该类文件暂时存放起来，完成后再行删除</td>
-</tr>
-</tbody>
-</table>
-<p>根据以上各表列举的各目录及作用，如果我们要做一些实验和练习，需要创建一些临时文件，应该保存在哪里呢?</p>
-<p>答案是用户的主目录或 <code>/tmp/</code> 临时目录。但是要小心有些目录中不能直接修改和保存数据，比如 <code>/proc/fn/sys/</code> 目录，因为它们是保存在内存中的，如果在这里写入数据，那么您的内存会越来越小，直至死机；<code>/boot/</code> 目录也不能保存额外数据，因为 <code>/boot/</code> 目录会单独分区作为启动分区，如果没有空闲空间，则会导致系统不能正常启动。</p>
-<p>总之，Linux 要在合理的目录下进行操作和修改。</p>
-<div><p>注意</p>
-<p>目录名或文件名都是区分大小写的，如 dog、DOG 和 Dog 为 3 个不同的目录或文件。完整的目录或文件路径是由一连串的目录名所组成的，其中每一个目录由 <code>/</code> 来分隔。如 cat 的完整路径是 <code>/home/cat</code>。</p>
-</div>
-<h2 id="硬件设备名称" tabindex="-1"> 硬件设备名称</h2>
-<table>
-<thead>
-<tr>
-<th>硬件设备</th>
-<th>文件名称</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>IDE 设备</td>
-<td><code>/dev/hd[a-d]</code>，现在的 IDE 设备已经很少见了，因此一般的硬盘设备会以 <code>/dev/sd</code> 开头。</td>
-</tr>
-<tr>
-<td>SCSI/SATA/U 盘</td>
-<td><code>/dev/sd[a-p]</code>，一台主机可以有多块硬盘，因此系统采用 a~p 代表 16 块不同的硬盘。</td>
-</tr>
-<tr>
-<td>软驱</td>
-<td><code>/dev/fd[0-1]</code></td>
-</tr>
-<tr>
-<td>打印机</td>
-<td><code>/dev/lp[0-15]</code></td>
-</tr>
-<tr>
-<td>光驱</td>
-<td><code>/dev/cdrom</code></td>
-</tr>
-<tr>
-<td>鼠标</td>
-<td><code>/dev/mouse</code></td>
-</tr>
-<tr>
-<td>磁带机</td>
-<td><code>/dev/st0</code> 或 <code>/dev/ht0</code></td>
-</tr>
-</tbody>
-</table>
 ]]></content:encoded>
     </item>
   </channel>
